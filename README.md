@@ -1,6 +1,6 @@
 # portfolio-2024
 
-### Use this web app on [Github Pages](https://martinafsa.github.io/portfolio/)
+### Use this web app on [Github Pages](https://martinafsa.github.io/)
 
 ### Tecnologías utilizadas :wrench:
 * [VueJS](https://vuejs.org/) - An approachable, performant and versatile JavaScript framework for building web user interfaces.

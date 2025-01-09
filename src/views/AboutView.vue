@@ -1,6 +1,6 @@
 <template>
   <section id="about">
-      <h3>Sobre mí</h3>
+      <!-- <h3>Sobre mí</h3>
       <div class="positionRelative">
           <div>
               <div class="about_group">
@@ -43,7 +43,7 @@
               <div class="fullCircle" id="about_firstFullCircle"></div>
               <div class="fullCircle" id="about_sndFullCircle"></div>
           </div>
-      </div>
+      </div> -->
   </section>
 </template>
 

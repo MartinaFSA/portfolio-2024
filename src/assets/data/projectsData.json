@@ -1,20 +1,33 @@
 [
     {
-        "img": "avatarGenerator/avatarGenerator_thumbnail.png",
-        "tag": "Diseño y desarrollo",
-        "title": "Avatar Generator",
+        "title": "Kesler",
+        "img": "corderoGaucho_thumbnail.png",
+        "owner": "Trabajo realizado para el estudio Aguaviva",
+        "design": "Diseñado por Aguaviva",
         "link": "",
-        "description": "Esta aplicación web es un generador de avatares personalizados. Los usuarios pueden seleccionar el color de piel, ojos y labios del personaje, su peinado y el fondo o utilizar el seleccionador de rasgos aleatorios. Los personajes pueden ser descargados en formato PNG con un solo click.",
-        "objectName": "AvatarGenerator",
-        "imagesPath": "avatarGenerator/avatarGenerator_"
+        "fecha": "Enero 2025"
     },
     {
-        "img": "typoAttack/thumbnail.png",
-        "tag": "Diseño y Development",
-        "title": "TypoAttack",
+        "title": "Cordero Gaucho",
+        "img": "corderoGaucho_thumbnail.png",
+        "owner": "Trabajo realizado para el estudio Aguaviva",
+        "design": "Diseñado por Aguaviva",
         "link": "",
-        "description": "Esta web es un display interactivo de una puesta tipográfica inspirada en {equis tema}",
-        "objectName": "TypoAttack",
-        "imagesPath": "typoAttack/typoAttack_"
+        "fecha": ""
+    },
+    {
+        "title": "Online News Portal",
+        "img": "corderoGaucho_thumbnail.png",
+        "owner": "Autoría propia",
+        "design": "Proyecto personal",
+        "link": "",
+        "fecha": ""
+    },
+    {
+        "title": "Avatar Generator",
+        "img": "avatarGenerator_thumbnail.png",
+        "owner": "Autoría propia",
+        "design": "Proyecto personal",
+        "link": ""
     }
 ]

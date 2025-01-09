@@ -1,0 +1,168 @@
+@font-face {
+  font-family: "Gothiks-Book";
+  src: local("Gothiks-Book"),
+    url('../assets/fonts/Gothiks-Book.woff') format("woff");
+  font-weight: normal;
+  font-style: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SpaceMono-Regular";
+  src: local("SpaceMono-Regular"),
+    url('../assets/fonts/SpaceMono-Regular.woff') format("woff");
+  font-weight: normal;
+  font-style: 400;
+  font-display: swap;
+}
+
+/*Global*/
+:root {
+  --white: #e3e5d8;
+  --black: #171717;
+  --accentColor: #EE6010;
+  --accentFont: Gothiks-Book;
+  --mainFont: SpaceMono-Regular;
+  --sideMargin: 5vw;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  vertical-align: baseline;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--black);
+}
+*::-webkit-scrollbar {
+  width: 10px;
+}
+*::-webkit-scrollbar-track, *::-webkit-scrollbar-track:hover, *::-webkit-scrollbar-track:active {
+  background-color: var(--black);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  border: 1px solid var(--accentColor);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--accentColor);
+
+} *::-webkit-scrollbar-thumb:hover, *::-webkit-scrollbar-thumb:active {
+  background-color: var(--accentColor);
+}
+body {
+  background-color: var(--black);
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+a, button {
+  text-decoration: none;
+  color: var(--white);
+  transition: all .4s;
+}
+h1 {
+  color: var(--white);
+  font-family: var(--accentFont);
+  font-size: clamp(6rem, 16.5vw , 18vw);
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 0%;
+  margin: 0%;
+}
+h2 {
+  color: var(--white);
+  font-family: var(--accentFont);
+  font-size: clamp(4rem, 10vw , 11vw);
+  text-transform: uppercase;
+  font-weight: 200;
+  line-height: clamp(4rem, 10vw , 11vw);
+  padding: 0;
+  margin: 0;
+}
+h3, .h3 {
+  color: var(--white);
+  font-size: clamp(3rem, 5vw, 6vw);
+  font-weight: 400;
+  font-family: var(--accentFont);
+  text-transform: uppercase;
+  line-height: 83%;
+}
+.generalText {
+  color: var(--white);
+  text-align: left;
+  font-family: var(--mainFont);
+  max-width: 50ch;
+  font-size: clamp(1rem, 1rem + 0.5vw, 1.5rem);
+  text-transform: uppercase;
+}
+ul {
+  list-style: none;
+}
+
+.leftMargin {
+  position: relative;
+  left: var(--sideMargin);
+}
+.rightMargin {
+  right: var(--sideMargin);
+}
+/*Navigation bar*/
+header {
+  width: 97vw;
+  position: fixed;
+  margin: 0%;
+  padding: 0%;
+  z-index: 10;
+}
+nav {
+  position: fixed;
+  // top: -50px;
+  transition: ease-in-out 0.3s;
+  // opacity: 0;
+  width: 100%;
+  padding: 15px 5vw;
+  margin: 0%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #171717c9;
+  backdrop-filter: blur(3px);
+  a {
+    text-align: center;
+    color: inherit;
+    font-weight: 300;
+    font-family: var(--mainFont);
+    font-size: 1.4rem;
+    letter-spacing: -0.6px;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: .25s ease;
+    margin: 0px 10px;
+  }
+  ul:hover a {
+    color: #e3e5d8b6;
+    opacity: 100;
+  }
+  li:hover a:hover {
+    color: var(--white);
+    box-shadow: 0 2px 0 0 currentcolor;
+  }
+  a:hover, .accent, button:hover {
+    color: var(--accentColor);
+  }
+}
+#ctnNavLinks {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+}
+/*Animations*/

@@ -1,8 +1,7 @@
 <template>
     <footer class="positionRelative" id="contacto">
         <div id="footer_firstLine">
-            <a href="/surprise" aria-label="Ir a un sitio externo sorpresa">;-)</a>
-            <p>Martina Fernandez Suarez Anzorena</p>
+            <p class="generalText">Texto</p>
         </div>
         <div class="footer_social-list">
             <a href="https://github.com/MartinaFSA" target="_blank" class="social-link">
@@ -33,20 +32,5 @@
             </a>
         </div>
         <h1>Contactame</h1>
-        <div id="footer_ctnFigures">
-            <div class="fullCircle" id="footer_firstFullCircle"></div>
-            <img class="star" id="footer_star" src="/src/assets/img/star.svg">
-            <div class="halfCircle" id="footer_halfCircle"></div>
-        </div>
     </footer>
 </template>
-
-<script>
-    export default {
-        name: 'Contact'
-    }
-</script>
-
-<style>
-  @import '@/assets/styles/contact.css';
-</style>
