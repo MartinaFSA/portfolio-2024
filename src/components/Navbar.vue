@@ -1,5 +1,9 @@
 <template>
   <header>
+        <div class="hamburguerIcon">
+            <div class="topBar"></div>
+            <div class="bottomBar"></div>
+        </div>
         <nav id="navbar">
           <ul id="ctnNavLinks">
               <li><a href="#inicio">Inicio</a></li>
@@ -13,17 +17,17 @@
 
 <script>
     import { RouterLink } from 'vue-router';
-    // window.onscroll = function() {scrollFunction()};
-    // let screenHeight = window.screen.height * window.devicePixelRatio;
-    // function scrollFunction() {
-    //     if (document.body.scrollTop > screenHeight || document.documentElement.scrollTop > screenHeight) {
-    //     document.getElementById("navbar").style.opacity = "1";
-    //     document.getElementById("navbar").style.top = "0";
-    //     } else {
-    //     document.getElementById("navbar").style.top = "-50px";
-    //     document.getElementById("navbar").style.opacity = "0";
-    //     }
-    // }
+    window.onscroll = function() {scrollFunction()};
+    let screenHeight = window.screen.height * window.devicePixelRatio;
+    function scrollFunction() {
+        if (document.body.scrollTop > screenHeight || document.documentElement.scrollTop > screenHeight) {
+        document.getElementById("navbar").style.opacity = "1";
+        document.getElementById("navbar").style.top = "0";
+        } else {
+        document.getElementById("navbar").style.top = "-50px";
+        document.getElementById("navbar").style.opacity = "0";
+        }
+    }
     export default {
         name: 'Navbar',
         data: function() {

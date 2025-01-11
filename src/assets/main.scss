@@ -1,4 +1,4 @@
-@import './base.scss';
+@use './base.scss';
 
 //HOME
 #home {
@@ -9,11 +9,6 @@
         width: 100%;
         min-height: 100vh;
         overflow: hidden;
-        h1 {
-            padding: 0;
-            line-height: 80%;
-            margin-top: -1vw;
-        }
         .leftMargin {
             margin-top: 4rem;
             padding-bottom: 6rem;
@@ -22,26 +17,53 @@
             text-align: end;
             margin-right: 1vw;
         }
+        >div:first-of-type {
+            position: relative;
+            h1 {
+                padding: 0;
+                line-height: 80%;
+                margin-top: 0.1em;
+            }
+            .asterisk {
+                width: 5vw;
+                position: absolute;
+                right: 5vw;
+                bottom: 0vw;
+                z-index: 3;
+                color: var(--accentColor);
+                svg {
+                    color: var(--accentColor);
+                }
+            }
+
+        }
     }
     #ctn_projects {
         margin-top: 10rem;
         width: 100vw;
-        height: 100vh;
-        min-height: 300px;
-        overflow: scroll;
+        // height: 100vh;
+        // min-height: 300px;
+        // overflow: scroll;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         position: relative;
-        .titleBox {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .title {
-                color: var(--accentColor);
-            }
+        
+        // .titleBox {
+        //     position: absolute;
+        //     height: 100%;
+        //     width: 100%;
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: center;
+        //     .title {
+        //         color: var(--accentColor);
+        //     }
+        // }
+        h2 {
+            text-align: center;
+            margin-top: 5rem;
+            margin-bottom: 5rem;
         }
         .cards {
             display: grid;
@@ -55,30 +77,104 @@
             overflow: visible;
             z-index: 3;
             row-gap: 40px;
+            > div {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                &:nth-of-type(even) {
+                    .projectName {
+                        text-align: right;
+                        flex-direction: row-reverse;
+                        a {
+                            &:hover img {
+                                translate: 10px 10px;
+                            }
+                        }
+                    }
+                    // .projectImg:hover {
+                    //     img {
+                    //         transform: translate(10px, 10px);
+                    //     }
+                    // }
+                }
+                &:nth-of-type(odd) {
+                    .projectName {
+                        flex-direction: row;
+                        a {
+                            &:hover img {
+                                translate: -10px 10px;
+                            }
+                            img {
+                                transform: rotate(90deg);
+                            }
+                        }
+                    }
+                    // .projectImg:hover {
+                    //     img {
+                    //         transform: translate(-10px, 10px);
+                    //     }
+                    // }
+                }
+            }
             .projectCard {
-                border: 1px solid aqua;
                 position: relative;
-                max-width: 30vw;
+                max-width: 38vw;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
+                padding-top: 3vw;
                 .projectName {
-                    margin-bottom: -5vw;
                     z-index: 2;
-                }
-                &:nth-of-type(2n) {
-                    .projectName {
-                        text-align: right;
+                    width: 100%;
+                    margin-top: -3vw;
+                    position: absolute;
+                    display: flex;
+                    justify-content: space-between;
+                    p {
+                        max-width: 13ch;
+                    }
+                    a {
+                        img {
+                            transition: all 0.3s ease;
+                            margin-top: 1vw;
+                            width: clamp(3rem, 3vw, 6vw);
+                        }
                     }
                 }
                 .projectImg {
                     width: 100%;
                     aspect-ratio: 3 / 2;
-                    background-color: rgb(38, 185, 18);
-                    div, img {
+                    border: 2px solid transparent;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    img {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
+                        transition: all 0.3s ease;
+                        box-sizing: border-box; 
+                        filter: grayscale(1) brightness(0.7);
+                    }
+                    &:hover {
+                        // border: 2px solid var(--accentColor);
+                        img {
+                            filter: grayscale(1) brightness(0.4);
+                            transform: scale(0.95);
+                        }
+                        .readMore {
+                            opacity: 1;
+                        }
+                    }
+                    .readMore {
+                        opacity: 0;
+                        transition: all 0.3s ease;
+                        position: absolute;
+                        padding: 0.5rem 1.5rem;
+                        background-color: var(--accentColor);
                     }
                 }
                 .projectInfo {
@@ -226,5 +322,24 @@ footer {
 @media (min-width: 820px) {
     #footer_firstLine {
         font-size: 1.7rem;
+    }
+}
+@media (max-width: 865px) {
+    #home #ctn_projects .cards {
+        grid-template-columns: 100%;
+        .projectCard {
+            width: 80vw;
+            max-width: 400px;
+        }
+    }
+}
+@media (max-width: 438px) {
+    #home #ctn_projects .cards {
+        grid-template-columns: 100%;
+        .projectCard {
+            .projectImg {
+                aspect-ratio: 1 / 1;
+            }
+        }
     }
 }

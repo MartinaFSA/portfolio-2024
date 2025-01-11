@@ -1,7 +1,7 @@
 <template>
     <footer class="positionRelative" id="contacto">
         <div id="footer_firstLine">
-            <p class="generalText">Texto</p>
+            <p class="generalText whiteText">Texto</p>
         </div>
         <div class="footer_social-list">
             <a href="https://github.com/MartinaFSA" target="_blank" class="social-link">

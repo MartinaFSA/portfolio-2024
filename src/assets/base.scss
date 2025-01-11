@@ -7,9 +7,9 @@
   font-display: swap;
 }
 @font-face {
-  font-family: "SpaceMono-Regular";
-  src: local("SpaceMono-Regular"),
-    url('../assets/fonts/SpaceMono-Regular.woff') format("woff");
+  font-family: "Cousine";
+  src: local("Cousine-Regular"),
+    url('../assets/fonts/Cousine-Regular.woff') format("woff");
   font-weight: normal;
   font-style: 400;
   font-display: swap;
@@ -21,7 +21,7 @@
   --black: #171717;
   --accentColor: #EE6010;
   --accentFont: Gothiks-Book;
-  --mainFont: SpaceMono-Regular;
+  --mainFont: Cousine;
   --sideMargin: 5vw;
 }
 * {
@@ -67,7 +67,7 @@ a, button {
   color: var(--white);
   transition: all .4s;
 }
-h1 {
+h1, .h1 {
   color: var(--white);
   font-family: var(--accentFont);
   font-size: clamp(6rem, 16.5vw , 18vw);
@@ -76,7 +76,7 @@ h1 {
   padding: 0%;
   margin: 0%;
 }
-h2 {
+h2, .h2 {
   color: var(--white);
   font-family: var(--accentFont);
   font-size: clamp(4rem, 10vw , 11vw);
@@ -87,25 +87,36 @@ h2 {
   margin: 0;
 }
 h3, .h3 {
-  color: var(--white);
   font-size: clamp(3rem, 5vw, 6vw);
   font-weight: 400;
   font-family: var(--accentFont);
   text-transform: uppercase;
   line-height: 83%;
 }
-.generalText {
+h4, .h4 {
   color: var(--white);
+  font-size: 1.8rem;
+  font-weight: 400;
+  font-family: var(--accentFont);
+  text-transform: uppercase;
+  padding-bottom: 0.4rem;
+}
+.generalText {
   text-align: left;
   font-family: var(--mainFont);
   max-width: 50ch;
-  font-size: clamp(1rem, 1rem + 0.5vw, 1.5rem);
-  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 ul {
   list-style: none;
 }
-
+.whiteText {
+  color: var(--white);
+}
+.orangeText {
+  color: var(--accentColor);
+}
 .leftMargin {
   position: relative;
   left: var(--sideMargin);
@@ -115,54 +126,69 @@ ul {
 }
 /*Navigation bar*/
 header {
-  width: 97vw;
+  width: 100%;
   position: fixed;
+  top: 50px;
+  right: 50px;
   margin: 0%;
   padding: 0%;
   z-index: 10;
-}
-nav {
-  position: fixed;
-  // top: -50px;
-  transition: ease-in-out 0.3s;
-  // opacity: 0;
-  width: 100%;
-  padding: 15px 5vw;
-  margin: 0%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background: #171717c9;
-  backdrop-filter: blur(3px);
-  a {
-    text-align: center;
-    color: inherit;
-    font-weight: 300;
-    font-family: var(--mainFont);
-    font-size: 1.4rem;
-    letter-spacing: -0.6px;
-    text-transform: capitalize;
-    text-decoration: none;
-    transition: .25s ease;
-    margin: 0px 10px;
+  justify-content: flex-end;
+  
+  .hamburguerIcon {
+    width: 70px;
+    padding: 10px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    > div {
+      background-color: var(--accentColor);
+      height: 10px;
+      width: 100%;
+    }
   }
-  ul:hover a {
-    color: #e3e5d8b6;
-    opacity: 100;
+  
+  nav {
+    position: fixed;
+    transition: ease-in-out 0.3s;
+    width: fit-content;
+    padding: 15px 5vw;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--accentColor);
+    
+    #ctnNavLinks {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      color: var(--white);
+      li:hover a:hover {
+        color: var(--white);
+        box-shadow: 0 2px 0 0 currentcolor;
+      }
+      a:hover, .accent, button:hover {
+        color: var(--accentColor);
+      }
+    }
+    a {
+      text-align: center;
+      color: inherit;
+      font-weight: 300;
+      font-family: var(--mainFont);
+      font-size: 1.4rem;
+      letter-spacing: -0.6px;
+      text-transform: capitalize;
+      text-decoration: none;
+      transition: .25s ease;
+      margin: 0px 10px;
+    }
+    
   }
-  li:hover a:hover {
-    color: var(--white);
-    box-shadow: 0 2px 0 0 currentcolor;
-  }
-  a:hover, .accent, button:hover {
-    color: var(--accentColor);
-  }
-}
-#ctnNavLinks {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  color: var(--white);
 }
 /*Animations*/

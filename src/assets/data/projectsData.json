@@ -1,33 +1,33 @@
 [
     {
         "title": "Kesler",
-        "img": "corderoGaucho_thumbnail.png",
-        "owner": "Trabajo realizado para el estudio Aguaviva",
-        "design": "Diseñado por Aguaviva",
-        "link": "",
+        "img": "portada-kesler.png",
+        "owner": "Trabajo realizado para el estudio Aguaviva.",
+        "design": "Diseñado por Aguaviva.",
+        "link": "https://new.kesleryasociados.com.ar/",
         "fecha": "Enero 2025"
     },
     {
         "title": "Cordero Gaucho",
-        "img": "corderoGaucho_thumbnail.png",
+        "img": "portada-corderoGaucho.png",
         "owner": "Trabajo realizado para el estudio Aguaviva",
-        "design": "Diseñado por Aguaviva",
-        "link": "",
-        "fecha": ""
+        "design": "Diseñado por Aguaviva.",
+        "link": "https://corderogaucho.com.ar/",
+        "fecha": "Agosto 2024"
     },
     {
         "title": "Online News Portal",
-        "img": "corderoGaucho_thumbnail.png",
-        "owner": "Autoría propia",
-        "design": "Proyecto personal",
+        "img": "",
+        "owner": "Autoría propia.",
+        "design": "Proyecto personal.",
         "link": "",
         "fecha": ""
     },
     {
         "title": "Avatar Generator",
-        "img": "avatarGenerator_thumbnail.png",
-        "owner": "Autoría propia",
-        "design": "Proyecto personal",
+        "img": "",
+        "owner": "Autoría propia.",
+        "design": "Proyecto personal.",
         "link": ""
     }
 ]

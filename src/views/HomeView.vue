@@ -2,16 +2,33 @@
   <main id="home">
     <section id="ctn_name">
       <div>
-        <h1 class="blur-and-threshold">Martina Fernandez <br>Suarez Anzorena</h1>
-        <p class="asterisk">*</p>
+        <h1>
+          Martina Fernandez
+          <br>Suarez Anzorena
+        </h1>
+        <div class="asterisk">
+          <img src="/asterisk.svg" alt="">
+        </div>
       </div>
-      <div class="leftMargin">
-        <p class="generalText">Trabajo realizado Para el estudio Aguaviva
-          Diseñado por Aguaviva Trabajo realizado Para el estudio Aguaviva
-          Diseñado por Aguaviva</p>
+      <div class="leftMargin whiteText">
+          <div class="single-line">
+            <div class="single-line-inner">
+              <p class="generalText">Trabajo realizado Para el estudio Aguaviva</p>
+            </div>
+          </div>
+          <div class="single-line">
+            <div class="single-line-inner">
+              <p class="generalText">Diseñado por Aguaviva Trabajo realizado</p>
+            </div>
+          </div>
+          <div class="single-line">
+            <div class="single-line-inner">
+              <p class="generalText">Diseñado por Aguaviva</p>
+            </div>
+          </div>
       </div>
       <div id="webDev">
-        <h2 class="blur-and-threshold">Web Developer</h2>
+        <h2>Web Developer</h2>
       </div>
     </section>
     <ProjectsBlock />
@@ -65,9 +82,43 @@ const calculateTotalWorked = (experience: IExperience) => {
 };
 
 </script>
-<style lang="scss" scoped>
-.blur-and-threshold { 
-  filter: blur(var(--blur)) url(#svgThreshold);
-}
 
+<style lang="scss">
+.single-line {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: -0.4em -0.1em;
+  
+  .single-line-inner {
+    translate: none;
+    rotate: none;
+    scale: none;
+    position: relative;
+    display: inline-block;
+    padding: 0.2em 0.1em;
+    animation: slideText 0.5s cubic-bezier(.09,.64,.69,.85) forwards;
+    opacity: 0;
+  }
+  &:nth-of-type(2) {
+    .single-line-inner {
+      animation-delay: 0.2s;
+    }
+  }
+  &:nth-of-type(3) {
+    .single-line-inner {
+      animation-delay: 0.4s;
+    }
+  }
+}
+@keyframes slideText {
+  0% {
+    transform: translate(0%, 100%) translate3d(0px, 0px, 0px) rotate(0.001deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0%, 0%) translate3d(0px, 0px, 0px) rotate(0.001deg);
+    opacity: 1;
+  }
+}
 </style>
