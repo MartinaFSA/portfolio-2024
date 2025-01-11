@@ -31,7 +31,9 @@
         <h2>Web Developer</h2>
       </div>
     </section>
-    <ProjectsBlock />
+    <section id="works">
+      <ProjectsBlock/>
+    </section>
     <Contact></Contact>
   </main>
 </template>
