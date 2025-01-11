@@ -15,45 +15,48 @@
     </header>
 </template>
 
-<script>
+<script setup lang="ts">
+    import { onBeforeMount, onMounted, ref } from 'vue';
     import { RouterLink } from 'vue-router';
+
     window.onscroll = function() {scrollFunction()};
-    let screenHeight = window.screen.height * window.devicePixelRatio;
+
+    const screenHeight = window.screen.height * window.devicePixelRatio;
+    const isPortlioPage = ref(false);
+
+    onBeforeMount(() => {
+        getPathDir();
+    })
+    onMounted(() => {
+        setTimeout(() => {
+            getPathDir();
+        }, 1000);
+    })
+
+    //FUNCTIONS
     function scrollFunction() {
+        const navarEl = document.getElementById("navbar")
         if (document.body.scrollTop > screenHeight || document.documentElement.scrollTop > screenHeight) {
-        document.getElementById("navbar").style.opacity = "1";
-        document.getElementById("navbar").style.top = "0";
+            if(navarEl) {
+                navarEl.style.opacity = "1";
+                navarEl.style.top = "0";
+            }
         } else {
-        document.getElementById("navbar").style.top = "-50px";
-        document.getElementById("navbar").style.opacity = "0";
+            if(navarEl) {
+                navarEl.style.top = "-50px";
+                navarEl.style.opacity = "0";
+            }
         }
     }
-    export default {
-        name: 'Navbar',
-        data: function() {
-            return {
-                isPortlioPage: false, 
-            }
-        },
-        methods: {
-            getPathDir: function() {
-                let windowLocation =  window.location.href.slice(7); //delete http:// from variable
-                let firstSlash = windowLocation.indexOf('/') + 1;
-                let secondSlash = windowLocation.indexOf('/', firstSlash)  + 1;
-                let thirdSlash = windowLocation.indexOf('/', secondSlash) + 1;
-                
-                let startsWithPortfolioRoute = windowLocation.slice(firstSlash, secondSlash) == "/" ? true : false;
-                let pointsToOtherRoute = (windowLocation.slice(secondSlash, thirdSlash) == "#inicio" && windowLocation.slice(secondSlash, thirdSlash) == "#contacto") && (windowLocation.slice(secondSlash, thirdSlash) == "#proyectos") ? true : false;
-                this.isPortlioPage = (startsWithPortfolioRoute && pointsToOtherRoute);
-            }
-        },
-        beforeMount() {
-            this.getPathDir();
-        },
-        mounted() {
-            setTimeout(() => {
-                this.getPathDir();
-            }, 1000);
-        }
+
+    function getPathDir () {
+        const windowLocation =  window.location.href.slice(7); //delete http:// from variable
+        const firstSlash = windowLocation.indexOf('/') + 1;
+        const secondSlash = windowLocation.indexOf('/', firstSlash)  + 1;
+        const thirdSlash = windowLocation.indexOf('/', secondSlash) + 1;
+        
+        const startsWithPortfolioRoute = windowLocation.slice(firstSlash, secondSlash) == "/" ? true : false;
+        const pointsToOtherRoute = (windowLocation.slice(secondSlash, thirdSlash) == "#inicio" && windowLocation.slice(secondSlash, thirdSlash) == "#contacto") && (windowLocation.slice(secondSlash, thirdSlash) == "#proyectos") ? true : false;
+        isPortlioPage.value = (startsWithPortfolioRoute && pointsToOtherRoute);
     }
 </script>
