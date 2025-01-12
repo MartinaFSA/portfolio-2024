@@ -1,16 +1,18 @@
 <template>
-  <header>
-        <a class="hamburguerIcon" @click="toggleMenu">
-            <div class="topBar"></div>
-            <div class="bottomBar"></div>
-        </a>
-        <nav id="navbar">
-          <ul id="ctnNavLinks">
-              <li><a href="/#works" class="h3 whiteText">Works</a></li>
-              <li><a href="/about" class="h3 whiteText">About me</a></li>
-              <li><a href="#contacto" class="h3 whiteText">Contact</a></li>
-          </ul>
-        </nav>
+    <header>
+        <section class="header">
+            <a class="hamburguerIcon cross" @click="toggleMenu">
+                <div class="topBar"></div>
+                <div class="bottomBar"></div>
+            </a>
+            <nav id="navbar">
+                <ul id="ctnNavLinks">
+                    <li><a href="/#works" class="h3 whiteText">Works</a></li>
+                    <!-- <li><a href="/about" class="h3 whiteText">About me</a></li> -->
+                    <li><a href="#contacto" class="h3 whiteText">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
     </header>
 </template>
 
@@ -21,7 +23,7 @@
 
     //FUNCTIONS
     function scrollFunction() {
-        const headerEl = document.querySelector("header");
+        const headerEl = document.querySelector(".header");
         const navarEl = document.querySelector("nav");
         const hamburguerIcon = document.querySelector(".hamburguerIcon");
 
@@ -30,7 +32,7 @@
                 headerEl.classList.add("show");
             }
         } else {
-            if(headerEl) {
+            if(headerEl && navarEl && hamburguerIcon) {
                 headerEl.classList.remove("show");
                 navarEl.classList.remove("show");
                 hamburguerIcon.classList.remove("opened");
@@ -40,7 +42,9 @@
     function toggleMenu() {
         const navarEl = document.querySelector("nav");
         const hamburguerIcon = document.querySelector(".hamburguerIcon");
-        navarEl.classList.toggle("show");
-        hamburguerIcon.classList.toggle("opened");
+        if(navarEl && hamburguerIcon) {
+            navarEl.classList.toggle("show");
+            hamburguerIcon.classList.toggle("opened");
+        }
     }
 </script>

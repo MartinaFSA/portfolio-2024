@@ -13,22 +13,22 @@
       <div class="leftMargin whiteText">
           <div class="single-line">
             <div class="single-line-inner">
-              <p class="generalText">Trabajo realizado Para el estudio Aguaviva</p>
+              <p class="generalText">Passionate about creating modern websites.</p>
             </div>
           </div>
           <div class="single-line">
             <div class="single-line-inner">
-              <p class="generalText">Diseñado por Aguaviva Trabajo realizado</p>
+              <p class="generalText">Always looking forward to finding new</p>
             </div>
           </div>
           <div class="single-line">
             <div class="single-line-inner">
-              <p class="generalText">Diseñado por Aguaviva</p>
+              <p class="generalText">challenging projects.</p>
             </div>
           </div>
       </div>
       <div id="webDev">
-        <h2>Web Developer</h2>
+        <p>Web Developer</p>
       </div>
     </section>
     <section id="works">

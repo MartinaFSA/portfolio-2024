@@ -14,15 +14,23 @@
         </div>
     </article>
     <section class="modal" :id="slug(project.title)">
-        <h2 @click="closeModal">X</h2>
         <div>
-            <div class="modal-image">
-                <img :src="project.img" alt="">
+            <div @click="closeModal" class="closeModal cross">
+                <div class="crossbar topBar"></div>
+                <div class="crossbar bottomBar"></div>
             </div>
-            <div class="modal-text">
-                <p class="h3">{{project.title}}</p>
-                <p class="generalText">{{project.owner}}</p>
-                <p class="generalText">{{project.description}}</p>
+            <div class="modal-body">
+                <div class="modal-text">
+                    <div>
+                        <p class="h3">{{project.title}}</p>
+                        <p class="generalText orangeText">{{project.date}}</p>
+                        <p class="generalText">{{project.description}}</p>
+                        <p class="generalText">Made with: <span class="orangeText">{{project.development}}</span></p>
+                    </div>
+                </div>
+                <div class="modal-image">
+                    <img :src="project.preview" alt="">
+                </div>
             </div>
         </div>
     </section>
@@ -83,25 +91,75 @@
             background-color: var(--white);
             width: 80%;
             height: 80%;
-            max-width: 1140px;
-            overflow: scroll;
-            display: flex;
-            gap: 10%;
-            padding: 5rem;
-            .modal-image {
-                width: 50%;
-                height: fit-content;
-                overflow: visible;
-                img {
-                    width: 100%;
-                    object-fit: contain;
+            position: relative;
+            .closeModal {
+                position: absolute;
+                top: -35px;
+                right: -35px;
+                z-index: 3;
+                color: var(--accent-color);
+            }
+            .modal-body {
+                height: 100%;
+                overflow-y: auto;
+                padding-right: 3px;
+                .modal-image {
+                    height: fit-content;
+                    overflow: visible;
+                    img {
+                        width: 100%;
+                        object-fit: contain;
+                    }
+                }
+                .modal-text {
+                    overflow: visible;
+                    color: var(--black);
+                    margin-bottom: 50px;
+                    > div {
+                        p {
+                            width: fit-content;
+                        }
+                    }
+                    .h3 {
+                        margin-bottom: 20px;
+                    }
                 }
             }
-            .modal-text {
-                width: 50%;
-                height: fit-content;
-                overflow: visible;
-                color: var(--black);
+        }
+    }
+    @media screen and (max-width: 865px) {
+        .modal {
+            > div {
+                width: 90%;
+                height: 90%;
+            }
+        }
+    }
+    
+    @media screen and (max-width: 985px) {
+        .modal > div {
+            padding: 20px 30px;
+        }
+    }
+    @media screen and (min-width: 985px) {
+        .modal {
+            > div {
+                padding: 3rem 20px 3rem 3rem;
+                .modal-body {
+                    padding-right: 3rem;
+                    display: flex;
+                    flex-direction: row-reverse;
+                    gap: 50px;
+                    .modal-image {
+                        width: 65%;
+                    } .modal-text {
+                        width: 35%;
+                        > div {
+                            position: fixed;
+                            width: 23%;
+                        }
+                    }
+                }
             }
         }
     }
