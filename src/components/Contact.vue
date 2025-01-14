@@ -1,6 +1,10 @@
 <template>
-    <footer class="positionRelative" id="contacto">
-        <h1>Reach Out</h1>
+    <footer class="positionRelative" id="contact">
+        <div class="single-line">
+            <div class="single-line-inner">
+                <h1>Reach Out</h1>
+            </div>
+        </div>
         <div class="footer_social-list">
             <div>
                 <a href="https://github.com/MartinaFSA" target="_blank" class="social-link" aria-labelledby="Go to GitHub">

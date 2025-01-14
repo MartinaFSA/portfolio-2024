@@ -8,9 +8,9 @@
       <p>Try going to one of these links</p>
       <div>
         <ul>
-            <li><a href="/#inicio">Work</a></li>
-            <li><a href="/#proyectos">About me</a></li>
-            <li><a href="/#contacto">Contact</a></li>
+            <li><a href="/#works">Work</a></li>
+            <!-- <li><a href="/#proyectos">About me</a></li> -->
+            <li><a href="/#contact">Contact</a></li>
         </ul>
       </div>
     </div>

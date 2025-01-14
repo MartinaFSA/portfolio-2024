@@ -56,3 +56,46 @@
   }
 }
 </style>
+<script setup lang="ts">
+    import { ref, onBeforeMount } from 'vue';
+    import experiencesJson from '../assets/data/experiencesData.json';
+    import type { IExperience } from '../assets/data/models';
+    const experiences = ref<IExperience[]>([]);
+    onBeforeMount(() => {
+        experiences.value = experiencesJson;
+        console.log(experiencesJson)
+    });
+
+    const calculateTotalWorked = (experience: IExperience) => {
+        const fromTime = new Date(experience.fromTime);
+        const toTime = new Date(experience.toTime);
+
+        const yearsWorked = toTime.getFullYear() - fromTime.getFullYear();
+        const monthsWorked = toTime.getMonth() - fromTime.getMonth();
+        let totalTime = ''; 
+
+        switch (yearsWorked) {
+            case 0:
+            break;
+            case 1:
+            totalTime += '1 year';
+            break;
+            default:
+            totalTime += yearsWorked + ' years';
+            break;
+        }
+
+        switch (monthsWorked) {
+            case 0:
+            break;
+            case 1:
+            totalTime += ', 1 month';
+            break;
+            default:
+            totalTime += ', ' + monthsWorked + ' months';
+            break;
+        }
+        
+        return totalTime;
+    };
+</script>

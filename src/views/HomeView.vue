@@ -1,126 +1,122 @@
 <template>
   <main id="home">
-    <section id="ctn_name">
-      <div>
-        <h1>
-          Martina Fernandez
-          <br>Suarez Anzorena
-        </h1>
-        <div class="asterisk">
-          <img src="/asterisk.svg" alt="">
+    <section class="ctn_name">
+      <section class="fixed">
+        <div class="name">
+          <h1>
+            Martina Fernandez
+            <br>Suarez Anzorena
+          </h1>
+          <div class="asterisk">
+            <img src="/asterisk.svg" alt="">
+          </div>
+        </div>
+        <div class="leftMargin whiteText">
+            <div class="single-line">
+              <div class="single-line-inner">
+                <p class="generalText">Passionate about creating modern websites.</p>
+              </div>
+            </div>
+            <div class="single-line">
+              <div class="single-line-inner">
+                <p class="generalText">Always looking forward to finding new</p>
+              </div>
+            </div>
+            <div class="single-line">
+              <div class="single-line-inner">
+                <p class="generalText">challenging projects.</p>
+              </div>
+            </div>
+        </div>
+        <div id="webDev" class="first-scroll single-line">
+          <div class="single-line-inner">
+            <p>Web Developer</p>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section id="works" class="second-scroll">
+      <div id="ctn_projects">
+        <h2 class="title orangeText">Works</h2>
+        <div class="cards">
+          <div v-for="(project, i) in projects" :key="i">
+            <ProjectCard :project="project" @projectSelected="handleModal"/>
+          </div>
         </div>
       </div>
-      <div class="leftMargin whiteText">
-          <div class="single-line">
-            <div class="single-line-inner">
-              <p class="generalText">Passionate about creating modern websites.</p>
-            </div>
-          </div>
-          <div class="single-line">
-            <div class="single-line-inner">
-              <p class="generalText">Always looking forward to finding new</p>
-            </div>
-          </div>
-          <div class="single-line">
-            <div class="single-line-inner">
-              <p class="generalText">challenging projects.</p>
-            </div>
-          </div>
-      </div>
-      <div id="webDev">
-        <p>Web Developer</p>
-      </div>
     </section>
-    <section id="works">
-      <ProjectsBlock/>
-    </section>
-    <Contact></Contact>
+    <Modal :project="projectSelected" v-if="viewModal" @closeModal="closeModal"/>
   </main>
 </template>
 <script setup lang="ts">
-import { ref, onBeforeMount } from 'vue';
-import Contact from '../components/Contact.vue';
-import experiencesJson from '../assets/data/experiencesData.json';
-import type { IExperience } from '../assets/data/models';
-import ProjectsBlock from '@/components/ProjectsBlock.vue';
+  import { onBeforeMount, onMounted, onUnmounted, ref } from 'vue';
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import Modal from '@/components/Modal.vue';
+  import ProjectCard from '@/components/ProjectCard.vue';
+  import projectsJson from '../assets/data/projectsData.json';
 
-const experiences = ref<IExperience[]>([]);
-onBeforeMount(() => {
-  experiences.value = experiencesJson;
-  console.log(experiencesJson)
-});
-
-const calculateTotalWorked = (experience: IExperience) => {
-  const fromTime = new Date(experience.fromTime);
-  const toTime = new Date(experience.toTime);
-
-  const yearsWorked = toTime.getFullYear() - fromTime.getFullYear();
-  const monthsWorked = toTime.getMonth() - fromTime.getMonth();
-  let totalTime = ''; 
-
-  switch (yearsWorked) {
-    case 0:
-      break;
-    case 1:
-      totalTime += '1 year';
-      break;
-    default:
-      totalTime += yearsWorked + ' years';
-      break;
-  }
-
-  switch (monthsWorked) {
-    case 0:
-      break;
-    case 1:
-      totalTime += ', 1 month';
-      break;
-    default:
-      totalTime += ', ' + monthsWorked + ' months';
-      break;
-  }
+  //PROJECTS
+  const projects = ref<any[]>(projectsJson);
+  const viewModal = ref(false);
+  const projectSelected = ref()
   
-  return totalTime;
-};
+  onBeforeMount(() => {
+    projects.value = projectsJson;
+  });
+
+  function handleModal (project: any) {
+    projectSelected.value = project;
+    viewModal.value = true;
+    return;
+  }
+
+  function closeModal() {
+    viewModal.value = false;
+    return;
+  }
+
+  //SCROLL ANIMATIONS
+  onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    var tl = gsap.timeline();
+    tl.fromTo('.first-scroll',
+      {
+        xPercent: 0,
+      },
+      {
+        xPercent: 200,
+        duration: 2.5,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: '#home',
+          start: '30% 30%',
+          end: 'bottom 80%',
+          scrub: true,
+          markers: false,
+          id: 'trigger-1',
+        }
+    });
+    tl.fromTo('#works',
+      {
+        yPercent: 100,
+      },
+      {
+        duration: 3,
+        yPercent: 0,
+        ease: 'power2.inOut',
+        scrollTrigger: {
+          trigger: '#home',
+          start: 'top 0%',
+          end: 'bottom 20%',
+          scrub: true,
+          markers: false,
+          id: 'trigger-2',
+        },
+      }, '+=9');
+  })
+  onUnmounted(() => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  });
 
 </script>
-
-<style lang="scss">
-.single-line {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  margin: -0.4em -0.1em;
-  
-  .single-line-inner {
-    translate: none;
-    rotate: none;
-    scale: none;
-    position: relative;
-    display: inline-block;
-    padding: 0.2em 0.1em;
-    animation: slideText 0.5s cubic-bezier(.09,.64,.69,.85) forwards;
-    opacity: 0;
-  }
-  &:nth-of-type(2) {
-    .single-line-inner {
-      animation-delay: 0.2s;
-    }
-  }
-  &:nth-of-type(3) {
-    .single-line-inner {
-      animation-delay: 0.4s;
-    }
-  }
-}
-@keyframes slideText {
-  0% {
-    transform: translate(0%, 100%) translate3d(0px, 0px, 0px) rotate(0.001deg);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(0%, 0%) translate3d(0px, 0px, 0px) rotate(0.001deg);
-    opacity: 1;
-  }
-}
-</style>

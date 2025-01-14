@@ -9,7 +9,7 @@
                 <ul id="ctnNavLinks">
                     <li><a href="/#works" class="h3 whiteText">Works</a></li>
                     <!-- <li><a href="/about" class="h3 whiteText">About me</a></li> -->
-                    <li><a href="#contacto" class="h3 whiteText">Contact</a></li>
+                    <li><a href="#contact" class="h3 whiteText">Contact</a></li>
                 </ul>
             </nav>
         </section>
