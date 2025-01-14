@@ -23,8 +23,8 @@
     },
     {
         "title": "Online News Portal",
-        "img": "",
-        "preview": "",
+        "img": "placeholder.png",
+        "preview": "placeholder.png",
         "owner": "Own authorship",
         "design": "Personal project",
         "description": "Online news portal with capacity for a robust amount of articles. Common users are able to read an unlimited amount of essay and news uploaded by the organization's writers. Collaborators can access and edit their public profiles and create their pieces from inside the webpage.",
