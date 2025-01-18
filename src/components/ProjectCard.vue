@@ -2,7 +2,7 @@
     <article class="projectCard">
         <div class="projectName whiteText">
             <p class="h3">{{project.title}}</p>
-            <a :href="project.link" aria-labelledby="Visit site" target="_blank"><img src="/arrow.svg" alt=""></a>
+            <a v-if="project.link !== ''" :href="project.link" aria-labelledby="Visit site" target="_blank"><img src="/arrow.svg" alt=""></a>
         </div>
         <a class="projectImg" @click="openModal(project)">
             <img :src="project.img" alt="">

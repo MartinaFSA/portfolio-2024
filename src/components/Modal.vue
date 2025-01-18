@@ -15,7 +15,11 @@
                     </div>
                 </div>
                 <div class="modal-image">
-                    <img :src="project.preview" alt="">
+                    <img v-if="!project.isVideo" :src="project.preview" :alt="'Preview of ' + project.title + 'webpage'">
+                    <video v-else width="100%" height="auto" controls>
+                        <source :src="project.video" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>

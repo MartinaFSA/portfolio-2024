@@ -90,7 +90,7 @@
         ease: "power1.inOut",
         scrollTrigger: {
           trigger: '#home',
-          start: '30% 30%',
+          start: '20% 30%',
           end: 'bottom 80%',
           scrub: true,
           markers: false,

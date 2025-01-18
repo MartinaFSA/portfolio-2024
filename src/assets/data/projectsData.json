@@ -1,9 +1,11 @@
 [
     {
         "title": "Kesler",
+        "isVideo": false,
         "img": "portada-kesler.png",
+        "video": "",
         "preview": "page-kelser.png",
-        "owner": "Elaborated for Aguaviva studio",
+        "owner": "Developed for Aguaviva studio",
         "design": "Designed by Aguaviva",
         "description": "Intuitive and user-friendly web platform for a legal agency in Buenos Aires. The website integrates sleek design elements and simple functionality to enhance the user experience.",
         "development": "Made with VueJS, PHP and MySQL",
@@ -12,9 +14,11 @@
     },
     {
         "title": "Cordero Gaucho",
+        "isVideo": false,
         "img": "portada-corderoGaucho.png",
+        "video": "",
         "preview": "page-kelser.png",
-        "owner": "Elaborated for Aguaviva studio",
+        "owner": "Developed for Aguaviva studio",
         "design": "Designed by Aguaviva",
         "description": "Dynamic and visually appealing platform for Cordero Gaucho, a meat provider specializing in authentic Argentine lamb products. The website features a modern design with easy navigation and a responsive layout to ensure a seamless experience on any device. Users can effortlessly browse the product catalog and reach out via WhatsApp to complete their purchases.",
         "development": "Made with VueJS, PHP, MySQL and the Meta API to integrate Instagram posts",
@@ -22,8 +26,23 @@
         "date": "August 2024"
     },
     {
+        "title": "Madrefoca",
+        "isVideo": true,
+        "img": "portada-madrefoca.png",
+        "video": "Madrefoca_video.mp4",
+        "preview": "",
+        "owner": "Developed for Aguaviva studio",
+        "design": "Designed by Aguaviva",
+        "description": "A dynamic and interactive page that includes microinteractions, smooth animations and transitions to enhance the user experience.",
+        "development": "Made with Webflow, custom HTML, JS and CSS and vimeo integrations",
+        "link": "",
+        "date": "January 2025"
+    },
+    {
         "title": "Online News Portal",
+        "isVideo": false,
         "img": "placeholder.png",
+        "video": "",
         "preview": "placeholder.png",
         "owner": "Own authorship",
         "design": "Personal project",
@@ -31,16 +50,5 @@
         "development": "Made with VueJS, PHP, MySQL and the Meta API to integrate Instagram posts",
         "link": "https://github.com/MartinaFSA/newsMagazine",
         "date": "In progress"
-    },
-    {
-        "title": "Avatar Generator",
-        "img": "portada-avatarGenerator.png",
-        "preview": "page-avatarGenerator.png",
-        "owner": "Own authorship",
-        "design": "Personal project",
-        "description": "Create a custom avatar and download it as a png image.",
-        "development": "Made with React and html2canvas",
-        "link": "https://github.com/MartinaFSA/Avatar_Generator",
-        "date": "May 2022"
     }
 ]
